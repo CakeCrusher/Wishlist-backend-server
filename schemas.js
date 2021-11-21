@@ -8,7 +8,7 @@ query MyQuery {
 `
 
 const CREATE_WISHLISTITEM = `
-mutation MyMutation($categoryId: uuid = "", $customerId: uuid = "", $lat: Int = 10, $lng: Int = 10, $request: String = "", $item: String = "", $timeCreated: String = "") {
+mutation MyMutation($categoryId: uuid = "", $customerId: uuid = "", $lat: Float = 10, $lng: Float = 10, $request: String = "", $item: String = "", $timeCreated: String = "") {
   insert_wishlistItem(objects: {categoryId: $categoryId, customerId: $customerId, lat: $lat, lng: $lng, request: $request, item: $item, timeCreated: $timeCreated}) {
     returning {
       id

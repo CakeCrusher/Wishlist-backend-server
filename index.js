@@ -22,6 +22,7 @@ app.post('/wishlistItemCreationProcess', async (req, res) => {
     headers: {'content-type': 'application/json'},
     body: raw,
   };
+  console.log(req.body.input.request);
   console.log(listOfCategories);
   const categoryMatch = await fetch("http://127.0.0.1:5000/hf/", requestOptions).then((res) =>
     res.json()
@@ -34,8 +35,8 @@ app.post('/wishlistItemCreationProcess', async (req, res) => {
     item: item,
     categoryId: categoryMatchObj.id,
     customerId: req.body.input.customerId,
-    lat: 10,
-    lng: 10,
+    lat: req.body.input.lat,
+    lng: req.body.input.lng,
     request: req.body.input.request,
     timeCreated: new Date().toISOString()
   })
